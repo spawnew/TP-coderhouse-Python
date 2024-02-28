@@ -1,0 +1,55 @@
+
+{%extends 'miapp/home.html'%}
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>singles</h2></td>
+        <td>
+            <a
+            href="{% url 'create_singles' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>precio</th>
+            <th>cantidad</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    {% for s in singles_list %}
+    <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.nombre }}</td>
+        <td>{{ s.precio }}</td>
+        <td>{{ s.cantidad }}</td>
+
+        <td>
+            <a
+              href="{% url 'update_singles'  %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'delete_singles'  %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+          </td>        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

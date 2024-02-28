@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.register(Singles)
+admin.site.register(Productosellado)
+admin.site.register(Cliente )
+admin.site.register(Ofertas)
