@@ -16,6 +16,7 @@ from .forms import *
 # Create your views here.
 def home(request):
     return render (request,"miapp/home.html")
+@login_required
 def singles(request):
     return render (request,"miapp/singles.html")
 def productosellado(request):
@@ -25,20 +26,22 @@ def cliente(request):
 def ofertas(request):
     return render (request,"miapp/ofertas.html")
 
-class SinglesList(ListView):
+
+
+class SinglesList(LoginRequiredMixin, ListView):
     model = Singles
 
-class  SinglesCreate(CreateView):
-    model = Singles
-    fields = ['nombre', 'precio', 'cantidad',]
-    success_url = reverse_lazy('singles')
-
-class  SinglesUpdate(UpdateView):
+class  SinglesCreate(LoginRequiredMixin, CreateView):
     model = Singles
     fields = ['nombre', 'precio', 'cantidad',]
     success_url = reverse_lazy('singles')
 
-class  SinglesDelete(DeleteView):
+class  SinglesUpdate(LoginRequiredMixin, UpdateView):
+    model = Singles
+    fields = ['nombre', 'precio', 'cantidad']
+    success_url = reverse_lazy('singles')
+
+class  SinglesDelete(LoginRequiredMixin, DeleteView):
     model = Singles
     success_url = reverse_lazy('singles')
 

@@ -36,8 +36,8 @@
                   
                     </ul>
                 </div>
-                <p style="color:green">Hola {{user.username}}!</p>
-                <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                <p style="color:white">Hola {{user.username}}!</p>
+                <<a class="btn btn-secondary " href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
                 <a class="btn btn-success" href="{% url 'registro' %}">Registro</a>
@@ -51,14 +51,14 @@
                 <div class="masthead-subheading">Welcome To Our Imperio Yugioh!</div>
                 
 
-<div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
     {% endblock titulo %}
                 
     {% block contenido %}
     
 {% endblock contenido %}
        
-        
+            </div>
    
         <!-- Footer-->
         <footer class="footer py-4">
