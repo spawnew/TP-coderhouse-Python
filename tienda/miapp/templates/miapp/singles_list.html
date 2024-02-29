@@ -23,6 +23,7 @@
             <th>precio</th>
             <th>cantidad</th>
             
+            
         </tr>
     </thead>
     <tbody>
@@ -32,16 +33,17 @@
         <td>{{ s.nombre }}</td>
         <td>{{ s.precio }}</td>
         <td>{{ s.cantidad }}</td>
+       
 
         <td>
             <a
-              href="{% url 'update_singles'  %}"
+              href="{% url 'update_singles'  s.id  %}"
               class="btn btn-primary"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
             </a>
             <a
-              href="{% url 'delete_singles'  %}"
+              href="{% url 'delete_singles' s.id %}"
               class="btn btn-danger"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
