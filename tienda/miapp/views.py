@@ -48,7 +48,6 @@ class  SinglesDelete(LoginRequiredMixin, DeleteView):
 
 
 
-
 def login_request(request):
     if request.method == "POST":
         usuario = request.POST['username']
@@ -56,13 +55,23 @@ def login_request(request):
         user = authenticate(request, username=usuario, password=password)
         if user is not None:
             login(request, user)
+
+            #____ Avatar
+            try:
+                avatar = Avatar.objects.get(user=request.user.id).imagen.url
+            except:
+                avatar = "/media/avatares/default.jpg"
+            finally:
+                request.session["avatar"] = avatar
+            #__________________________________________
+
             return render(request, "miapp/home.html")
         else:
             return redirect(reverse_lazy('login'))
         
     miForm = AuthenticationForm()
 
-    return render(request, "miapp/login.html", {"form": miForm })    
+    return render(request, "miapp/login.html", {"form": miForm })
 
 def register(request):
     if request.method == "POST":
@@ -76,3 +85,46 @@ def register(request):
         miForm = RegistroForm()
 
     return render(request, "miapp/registro.html", {"form": miForm })  
+def editarPerfil(request):
+    usuario = request.user
+
+    if request.method == "POST":
+        form = UserEditForm(request.POST)
+        if form.is_valid():
+            informacion = form.cleaned_data
+            user = User.objects.get(username=usuario)
+            user.email = informacion['email']
+            user.first_name = informacion['first_name']
+            user.last_name = informacion['last_name']
+            user.set_password(informacion['password1'])
+            user.save()
+            return render(request, "miapp/home.html")
+    else:    
+        form = UserEditForm(instance=usuario)
+
+    return render(request, "miapp/editar_Perfil.html", {"form": form }) 
+
+@login_required
+def agregar_avatar(request):
+    if request.method == "POST":
+        form = AvatarForm(request.POST, request.FILES)
+        if form.is_valid():
+            usuario = User.objects.get(username=request.user)
+
+            
+            avatarViejo = Avatar.objects.filter(user=usuario)
+            if len(avatarViejo) > 0:
+                for i in range(len(avatarViejo)):
+                    avatarViejo[i].delete()
+            
+            avatar = Avatar(user=usuario, imagen=form.cleaned_data['imagen'])
+            avatar.save()
+
+            imagen = Avatar.objects.get(user=request.user.id).imagen.url
+            request.session["avatar"] = imagen
+            return render(request, "miapp/home.html")
+
+    else:    
+        form = AvatarForm()
+
+    return render(request, "miapp/agregar_avatar.html", {"form": form })

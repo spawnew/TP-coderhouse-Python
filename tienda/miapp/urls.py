@@ -21,5 +21,7 @@ urlpatterns = [
  path('login/', login_request, name="login"),
     path('registro/', register, name="registro"),
      path('logout/', LogoutView.as_view(template_name="miapp/logout.html"), name="logout"),
+      path('editar_perfil/', editarPerfil, name="editar_perfil"),
+    path('agregar_avatar/', agregar_avatar, name="agregar_avatar")
 
 ]
