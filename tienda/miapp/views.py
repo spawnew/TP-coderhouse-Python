@@ -33,12 +33,12 @@ class SinglesList(LoginRequiredMixin, ListView):
 
 class  SinglesCreate(LoginRequiredMixin, CreateView):
     model = Singles
-    fields = ['nombre', 'precio', 'cantidad',]
+    fields = ['nombre', 'precio', 'cantidad','foto']
     success_url = reverse_lazy('singles')
 
 class  SinglesUpdate(LoginRequiredMixin, UpdateView):
     model = Singles
-    fields = ['nombre', 'precio', 'cantidad']
+    fields = ['nombre', 'precio', 'cantidad','foto']
     success_url = reverse_lazy('singles')
 
 class  SinglesDelete(LoginRequiredMixin, DeleteView):
