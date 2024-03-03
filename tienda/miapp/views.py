@@ -19,8 +19,8 @@ def home(request):
 @login_required
 def singles(request):
     return render (request,"miapp/singles.html")
-def productosellado(request):
-    return render (request,"miapp/productosellado.html")
+def producto(request):
+    return render (request,"miapp/producto.html")
 def cliente(request):
     return render (request,"miapp/cliente.html")
 def ofertas(request):
@@ -128,3 +128,34 @@ def agregar_avatar(request):
         form = AvatarForm()
 
     return render(request, "miapp/agregar_avatar.html", {"form": form })
+
+
+def buscar(request):
+    return render(request, "miapp/buscar.html")
+
+def buscarProductos(request):
+    if request.GET["buscar"]:
+        patron = request.GET["buscar"]
+        productos = Producto.objects.filter(nombre__icontains=patron)
+        contexto = {"productos": productos }
+        return render(request, "miapp/producto.html", contexto)
+    return HttpResponse("No se ingresaron patrones de busqueda")
+
+
+
+class ProductoList(LoginRequiredMixin, ListView):
+    model = Producto
+
+class  ProductoCreate(LoginRequiredMixin, CreateView):
+    model = Producto
+    fields = ['nombre', 'precio','producto']
+    success_url = reverse_lazy('producto')
+
+class  ProductoUpdate(LoginRequiredMixin, UpdateView):
+    model = Producto
+    fields = ['nombre', 'precio','producto']
+    success_url = reverse_lazy('producto')
+
+class  ProductoDelete(LoginRequiredMixin, DeleteView):
+    model = Producto
+    success_url = reverse_lazy('producto')

@@ -1,14 +1,16 @@
-
 {%extends 'miapp/home.html'%}
-
-
-
-
 {% block titulo %}
-<h2>Singles</h2>
+<div class="masthead-heading text-uppercase">Producto sellados</div>
 
-{% endblock titulo %}
+    {% endblock titulo %}
+
+
 {% block contenido %}
+
+
+<button type="button" class="btn btn-secondary"><a href="{%url 'buscar'%}" >buscar </button>
+   
+
 <table>
     <tr>
       
@@ -16,8 +18,7 @@
             <a
             href="{% url 'create_singles' %}"
             class="btn btn-danger btn-sm"
-            >Agregue una carta  <i class="fa fa-plus fa-lg" title="New Record"> </i>
-            </a>
+            >Agregue una producto
         </td>
     </tr>
 </table>
@@ -27,30 +28,30 @@
         <tr>
             <th class="titulo" style="color:white ">Nombre</th>
             <th style="color:white ">precio</th>
-            <th style="color:white ">cantidad</th>
+            <th style="color:white ">producto</th>
             
             
             
         </tr>
     </thead>
     <tbody>
-    {% for s in singles_list %}
+    {% for p in producto_list %}
     <tr>
         
-        <td style="color:white ">{{ s.nombre }}</td>
-        <td style="color:white ">{{ s.precio }}</td>
-        <td style="color:white ">{{ s.cantidad }}</td>
-        <td ><img src="{{ s.foto.url }} " alt="500px"></td> 
+        <td style="color:white ">{{ p.nombre }}</td>
+        <td style="color:white ">{{ p.precio }}</td>
+        
+        <td ><img src="{{ p.foto.url }} " alt="500px"></td> 
 
         <td>
             <a
-              href="{% url 'update_singles'  s.id  %}"
+              href="{% url 'update_producto'  p.id  %}"
               class="btn btn-primary"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Modificar<i class="fa fa-edit fa-sm" title="Edit Record"></i>
             </a>
             <a
-              href="{% url 'delete_singles' s.id %}"
+              href="{% url 'delete_producto' p.id %}"
               class="btn btn-danger"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
@@ -62,4 +63,3 @@
 </table>
 
 {% endblock contenido %}
-</div>

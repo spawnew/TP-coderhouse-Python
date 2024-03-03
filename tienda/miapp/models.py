@@ -15,11 +15,11 @@ class Singles (models.Model):
         def __str__(self):
              return f"{self.nombre}"
          
-class Productosellado (models.Model):
+class Producto (models.Model):
         
         nombre = models.CharField(max_length=40)
         precio = models.IntegerField()
-        producto= ImageField(upload_to="media/avatares",default="../media/avatares/1.jpeg")
+        producto= ImageField(upload_to="media/avatares",default="")
 
         def __str__(self):
              return f"{self.nombre}"
