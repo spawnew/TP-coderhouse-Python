@@ -16,7 +16,7 @@
       
         <td>
             <a
-            href="{% url 'create_singles' %}"
+            href="{% url 'create_producto' %}"
             class="btn btn-danger btn-sm"
             >Agregue una producto
         </td>
@@ -40,12 +40,11 @@
         
         <td style="color:white ">{{ p.nombre }}</td>
         <td style="color:white ">{{ p.precio }}</td>
-        
-        <td ><img src="{{ p.foto.url }} " alt="500px"></td> 
+        <td ><img src="{{ p.fproducto.url }} " alt=""  height="200px" weight="200px"></td> 
 
         <td>
             <a
-              href="{% url 'update_producto'  p.id  %}"
+              href="{% url 'update_producto' p.id  %}"
               class="btn btn-primary"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Modificar<i class="fa fa-edit fa-sm" title="Edit Record"></i>

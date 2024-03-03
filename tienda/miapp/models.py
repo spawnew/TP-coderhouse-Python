@@ -19,7 +19,7 @@ class Producto (models.Model):
         
         nombre = models.CharField(max_length=40)
         precio = models.IntegerField()
-        producto= ImageField(upload_to="media/avatares",default="")
+        fproducto= ImageField(upload_to="media/avatares",default="../media/avatares/images_4.jpeg")
 
         def __str__(self):
              return f"{self.nombre}"
