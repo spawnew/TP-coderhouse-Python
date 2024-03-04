@@ -8,5 +8,9 @@
 
 
     {% block contenido %}
-    <h1>singles</h1>
+      <!-- barra_busqueda.html -->
+      <form method="get" action="{% url 'buscar' %}">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
     {% endblock contenido %}

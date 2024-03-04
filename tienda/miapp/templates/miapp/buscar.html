@@ -1,7 +1,7 @@
 {% extends 'miapp/home.html' %}
 
 {% block titulo %}
-    <h1 class="mb-5">Buscar productos</h1>
+    <h1 class="mb-5">Buscar singles</h1>
 {% endblock titulo %}
     
 
@@ -9,7 +9,7 @@
 <form action="{% url 'buscarProductos' %}" method="get">
     {% csrf_token %}
 
-    <p>ingrese <input type="text" name="buscar" id="buscar"></p>
+    <p>Patron a buscar: <input type="text" name="buscar" id="buscar"></p>
     <input type="submit" value="Buscar">
 </form>
 {% endblock contenido %}

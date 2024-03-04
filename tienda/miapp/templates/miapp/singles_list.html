@@ -9,6 +9,7 @@
 
 {% endblock titulo %}
 {% block contenido %}
+
 <table>
     <tr>
       
@@ -29,6 +30,8 @@
             <th style="color:white ">precio</th>
             <th style="color:white ">cantidad</th>
             
+
+            
             
             
         </tr>
@@ -40,8 +43,9 @@
         <td style="color:white ">{{ s.nombre }}</td>
         <td style="color:white ">{{ s.precio }}</td>
         <td style="color:white ">{{ s.cantidad }}</td>
-        <td ><img src="{{ s.foto.url }} " alt="500px"></td> 
-
+        <td ><img src="{{ s.foto.url }} " alt=""  height="100px" weight="100px"></td>
+    
+        
         <td>
             <a
               href="{% url 'update_singles'  s.id  %}"

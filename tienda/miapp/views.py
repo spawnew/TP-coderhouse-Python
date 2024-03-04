@@ -1,4 +1,4 @@
-from django.shortcuts import render
+
 from .models import *
 from django.views.generic import ListView
 from django.views.generic import CreateView
@@ -12,6 +12,7 @@ from django.contrib.auth            import authenticate, login
 from django.contrib.auth.mixins     import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .forms import *
+
 
 # Create your views here.
 def home(request):
@@ -130,17 +131,19 @@ def agregar_avatar(request):
     return render(request, "miapp/agregar_avatar.html", {"form": form })
 
 
-
+@login_required
 def buscar(request):
     return render(request, "miapp/buscar.html")
 
+@login_required
 def buscarProductos(request):
     if request.GET["buscar"]:
         patron = request.GET["buscar"]
-        producto = Producto.objects.filter(nombre__icontains=patron)
-        contexto = {"producto": producto }
-        return render(request, "miapp/producto.html", contexto)
+        productos = Producto.objects.filter(nombre__icontains=patron )
+        contexto = {"productos": productos }
+        return render(request, "miapp/producto_list.html", contexto)
     return HttpResponse("No se ingresaron patrones de busqueda")
+
 
 
 class ProductoList(LoginRequiredMixin, ListView):
