@@ -13,6 +13,9 @@ urlpatterns = [
     path('delete_producto/<int:pk>/', ProductoDelete.as_view(), name="delete_producto" ),
     path('buscar/', buscar, name="buscar"),
     path('buscarProductos/', buscarProductos, name='buscarProductos'),
+  path('acerca',acerca, name='acerca'),
+ 
+ 
  
     
     

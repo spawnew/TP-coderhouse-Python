@@ -17,6 +17,8 @@ from .forms import *
 # Create your views here.
 def home(request):
     return render (request,"miapp/home.html")
+def acerca(request):
+    return render (request,"miapp/acerca.html")
 @login_required
 def singles(request):
     return render (request,"miapp/singles.html")
