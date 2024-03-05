@@ -35,17 +35,18 @@
                         <li class="nav-item"><a class="nav-link" href="{%url 'producto'%}">Producto Sellado</a></li>
                   
                     </ul>
-                </div>
-                <p style="color:white">Hola {{user.username}}!</p>
-                <<div class="text-center">
-                    <a  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}" height="40px" weight="40px"/></a>
-                </div>        
-                <<a class="btn btn-secondary " href="{% url 'logout' %}">Logout</a>
-                <a class="btn btn-primary" href="{% url 'editar_perfil' %}">Perfil</a>
-            {% else %}
-                <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
-                <a class="btn btn-success" href="{% url 'registro' %}">Registro</a>
-            {% endif %}
+                
+                    <p style="color:green">Hola {{user.username}}!</p>
+                    <div class="text-center">
+                        <a  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}" height="40px" weight="40px"/></a>
+                    </div>                    
+                    <a class="btn btn-primary" href="{% url 'editar_perfil' %}">Perfil</a>
+                    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                    <a class="btn btn-success" href="{% url 'registro' %}">Registro</a>
+                {% endif %}
+                    
             </div>
         </nav>
         <!-- Masthead-->
