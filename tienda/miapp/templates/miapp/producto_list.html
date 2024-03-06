@@ -1,4 +1,5 @@
 {%extends 'miapp/home.html'%}
+
 {% block titulo %}
 <div class="masthead-heading text-uppercase">Producto sellados</div>
 
@@ -26,7 +27,7 @@
 
     
     {% for p in producto_list %}
-  <div class="d-flex flex-row col-md-4  flex-wrap">
+  <div class="container d-flex">
         <div class="card mb-3" style="width: 18rem;">
             <img src="{{ p.fproducto.url }} " class="card-img-top" alt="...">
             <div class="card-body">
