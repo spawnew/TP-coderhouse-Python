@@ -5,7 +5,7 @@
 
 
 {% block titulo %}
-<h2>Singles</h2>
+<h2>Ofertas</h2>
 
 {% endblock titulo %}
 {% block contenido %}
@@ -15,9 +15,9 @@
       
         <td>
             <a
-            href="{% url 'create_singles' %}"
+            href="{% url 'create_oferta' %}"
             class="btn btn-danger btn-sm"
-            >Agregue una carta  <i class="fa fa-plus fa-lg" title="New Record"> </i>
+            >Agregue una oferta <i class="fa fa-plus fa-lg" title="New Record"> </i>
             </a>
         </td>
     </tr>
@@ -28,7 +28,7 @@
         <tr>
             <th class="titulo" style="color:white ">Nombre</th>
             <th style="color:white ">precio</th>
-            <th style="color:white ">cantidad</th>
+            <th style="color:white ">descuento</th>
             
 
             
@@ -37,24 +37,26 @@
         </tr>
     </thead>
     <tbody>
-    {% for s in singles_list %}
+    {% for o in oferta_list %}
     <tr>
         
-        <td style="color:white ">{{ s.nombre }}</td>
-        <td style="color:white ">{{ s.precio }}</td>
-        <td style="color:white ">{{ s.cantidad }}</td>
-        <td ><img src="{{ s.foto.url }} " alt=""  height="100px" weight="100px"></td>
+        <td style="color:white ">{{ o.nombre }}</td>
+        <td style="color:white ">{{ o.precio }}</td>
+        <td style="color:white ">{{ o.descuento }}</td>
+        
+      
+     
     
         
         <td>
             <a
-              href="{% url 'update_singles'  s.id  %}"
+              href="{% url 'update_oferta'  o.id  %}"
               class="btn btn-primary"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Modificar<i class="fa fa-edit fa-sm" title="Edit Record"></i>
             </a>
             <a
-              href="{% url 'delete_singles' s.id %}"
+              href="{% url 'delete_oferta' o.id %}"
               class="btn btn-danger"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>

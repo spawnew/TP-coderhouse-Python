@@ -15,22 +15,20 @@ class Singles (models.Model):
         def __str__(self):
              return f"{self.nombre}"
          
-class Producto (models.Model):
-        
-        nombre = models.CharField(max_length=40)
-        precio = models.IntegerField()
-        fproducto= ImageField(upload_to="media/avatares",default="../media/avatares/images_4.jpeg")
-        def __str__(self):
-          return f"{self.user} {self.imagen}" 
-        def __str__(self):
-             return f"{self.nombre}"
+class Producto(models.Model):
+    nombre = models.CharField(max_length=40)
+    precio = models.IntegerField()
+    fproducto = ImageField(upload_to="media/avatares", default="../media/avatares/images_4.jpeg")
+
+    def __str__(self):
+        return f"{self.nombre}"  
 class Cliente (models.Model):
             
     nombre=models.CharField(max_length=40)
     dni=models.IntegerField()
     
     
-class Ofertas(models.Model):
+class Oferta(models.Model):
         
     nombre=models.CharField(max_length=40)
     precio=models.IntegerField()  

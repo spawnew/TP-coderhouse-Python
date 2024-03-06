@@ -5,7 +5,19 @@
 {% endblock titulo %}
     
 
+
+
+
+
 {% block contenido %}
+<ul>
+    <li><h3>Datos personales</h3></li>  
+  <li>{{user.first_name}}</li>
+  <li>{{user.last_name}}</li>
+      <li>{{user.email}} </li>
+
+
+
 <form action="" method="post">
     {% csrf_token %}
 

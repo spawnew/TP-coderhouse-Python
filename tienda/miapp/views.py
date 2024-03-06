@@ -19,15 +19,12 @@ def home(request):
     return render (request,"miapp/home.html")
 def acerca(request):
     return render (request,"miapp/acerca.html")
-@login_required
-def singles(request):
-    return render (request,"miapp/singles.html")
-def producto(request):
-    return render (request,"miapp/producto.html")
+
 def cliente(request):
     return render (request,"miapp/cliente.html")
-def ofertas(request):
-    return render (request,"miapp/ofertas.html")
+def oferta(request):
+    return render (request,"miapp/oferta.html")
+
 
 
 
@@ -133,21 +130,20 @@ def agregar_avatar(request):
     return render(request, "miapp/agregar_avatar.html", {"form": form })
 
 
-@login_required
+
+ 
+
 def buscar(request):
     return render(request, "miapp/buscar.html")
 
-@login_required
 def buscarProductos(request):
     if request.GET["buscar"]:
         patron = request.GET["buscar"]
-        productos = Producto.objects.filter(nombre__icontains=patron )
-        contexto = {"productos": productos }
-        return render(request, "miapp/producto_list.html", contexto)
+        cursos = Producto.objects.filter(nombre__icontains=patron)
+        contexto = {"cursos": cursos }
+        return render(request, "miapp/producto.html", contexto)
     return HttpResponse("No se ingresaron patrones de busqueda")
-
-
-
+    
 class ProductoList(LoginRequiredMixin, ListView):
     model = Producto
 
@@ -164,3 +160,20 @@ class  ProductoUpdate(LoginRequiredMixin, UpdateView):
 class  ProductoDelete(LoginRequiredMixin, DeleteView):
     model = Producto
     success_url = reverse_lazy('producto')
+    
+    
+class OfertaList(LoginRequiredMixin, ListView):
+    model = Oferta
+
+class  OfertaCreate(LoginRequiredMixin, CreateView):
+    model = Oferta
+    fields = ['nombre' , 'precio' , 'descuento']
+    success_url = reverse_lazy('oferta')
+
+class  OfertaUpdate(LoginRequiredMixin, UpdateView):
+    model =Oferta
+    fields = ['nombre', 'precio','descuento']
+    success_url = reverse_lazy(' oferta')
+class  OfertaDelete(LoginRequiredMixin, DeleteView):
+        model = Oferta
+        success_url = reverse_lazy('oferta')
