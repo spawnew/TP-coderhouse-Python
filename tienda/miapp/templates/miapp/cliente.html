@@ -2,12 +2,13 @@
 
 {% block titulo %}
 <div class="masthead-heading text-uppercase"> Cliente</div>
-<ul>
+<ul style="list-style:none">
   <li><h3>Datos personales</h3></li>  
 <li>{{user.first_name}}</li>
 <li>{{user.last_name}}</li>
     <li>{{user.email}} </li>
+   
 
 </ul>
-<button type="button" class="btn btn-secondary"><a href="{%url 'editar_perfil'%}" >perfil </button>
+<button type="button" class="btn btn-secondary"><a href="{%url 'editar_perfil'%}" >Editar perfil </button>
     {% endblock titulo %}
