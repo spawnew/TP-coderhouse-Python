@@ -1,4 +1,4 @@
-from django.urls import path,include
+from django.urls import path
 from .views import *
 from django.contrib.auth.views import LogoutView
 
@@ -33,7 +33,7 @@ urlpatterns = [
 
  path('login/', login_request, name="login"),
   path('reg istro/', register, name="registro"),
-   path( 'logout/', LogoutView.as_view(template_name="miapp/logout.html"), name="logout" ),
+    path('logout/', LogoutView.as_view(template_name="miapp/logout.html"), name="logout"),
     path('editar_perfil/', editarPerfil, name="editar_perfil"),
     path('agregar_avatar/', agregar_avatar, name="agregar_avatar"),
     

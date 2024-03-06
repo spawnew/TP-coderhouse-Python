@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 
 
+
 # Create your views here.
 def home(request):
     return render (request,"miapp/home.html")
@@ -139,8 +140,8 @@ def buscar(request):
 def buscarProductos(request):
     if request.GET["buscar"]:
         patron = request.GET["buscar"]
-        cursos = Producto.objects.filter(nombre__icontains=patron)
-        contexto = {"cursos": cursos }
+        producto = Producto.objects.filter(nombre__icontains = patron)
+        contexto = {"producto": producto }
         return render(request, "miapp/producto.html", contexto)
     return HttpResponse("No se ingresaron patrones de busqueda")
     
