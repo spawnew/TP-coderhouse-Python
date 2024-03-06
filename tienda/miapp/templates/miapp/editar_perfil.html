@@ -10,11 +10,6 @@
 
 
 {% block contenido %}
-<ul>
-    <li><h3>Datos personales</h3></li>  
-  <li>{{user.first_name}}</li>
-  <li>{{user.last_name}}</li>
-      <li>{{user.email}} </li>
 
 
 
@@ -27,4 +22,6 @@
     
     <input type="submit" value="Actualizar Perfil">
 </form>
+
+<button type="button" class="btn btn-secondary"><a href="{% url 'agregar_avatar' %}" >Editar Avatar </button>
 {% endblock contenido %}

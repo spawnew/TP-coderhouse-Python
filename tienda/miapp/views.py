@@ -173,7 +173,25 @@ class  OfertaCreate(LoginRequiredMixin, CreateView):
 class  OfertaUpdate(LoginRequiredMixin, UpdateView):
     model =Oferta
     fields = ['nombre', 'precio','descuento']
-    success_url = reverse_lazy(' oferta')
+    success_url = reverse_lazy('oferta')
 class  OfertaDelete(LoginRequiredMixin, DeleteView):
         model = Oferta
         success_url = reverse_lazy('oferta')
+        
+        
+class ClienteList(LoginRequiredMixin, ListView):
+     model = Cliente
+
+class  ClienteCreate(LoginRequiredMixin, CreateView):
+    model = Cliente
+    fields = ['direccion', 'telefono']
+    success_url = reverse_lazy('cliente')
+
+class  ClienteUpdate(LoginRequiredMixin, UpdateView):
+    model = Cliente
+    fields = ['direccion', 'telefono']
+    success_url = reverse_lazy('cliente')
+
+class  ClienteDelete(LoginRequiredMixin, DeleteView):
+    model = Cliente
+    success_url = reverse_lazy('cliente')

@@ -24,8 +24,8 @@ class Producto(models.Model):
         return f"{self.nombre}"  
 class Cliente (models.Model):
             
-    nombre=models.CharField(max_length=40)
-    dni=models.IntegerField()
+    direccion=models.CharField(max_length=40)
+    telefono=models.IntegerField()
     
     
 class Oferta(models.Model):
