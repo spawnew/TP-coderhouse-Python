@@ -23,27 +23,16 @@
     </tr>
 </table>
 
-<table class="table table-striped ">
-    <thead>
-        <tr>
-            <th class="titulo" style="color:white ">Nombre</th>
-            <th style="color:white ">precio</th>
-            <th style="color:white ">producto</th>
-            
-            
-            
-        </tr>
-    </thead>
-    <tbody>
-    {% for p in producto_list %}
-    <tr>
-        
-        <td style="color:white ">{{ p.nombre }}</td>
-        <td style="color:white ">{{ p.precio }}</td>
-        <td ><img src="{{ p.fproducto.url }} " alt=""  height="200px" weight="200px"></td> 
 
-        <td>
-            <a
+    
+    {% for p in producto_list %}
+  <div class="d-flex flex-row col-md-4  flex-wrap">
+        <div class="card mb-3" style="width: 18rem;">
+            <img src="{{ p.fproducto.url }} " class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-black" >{{ p.nombre }}</h5>
+              <p class="card-text text-black">precio:${{ p.precio }}</p>
+              <a
               href="{% url 'update_producto' p.id  %}"
               class="btn btn-primary"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
@@ -55,10 +44,10 @@
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
             </a>
-          </td>        
-    </tr>
+            </div>
+          </div>
+        </div>
     {% endfor %}
-    </tbody>
-</table>
+ 
 
 {% endblock contenido %}

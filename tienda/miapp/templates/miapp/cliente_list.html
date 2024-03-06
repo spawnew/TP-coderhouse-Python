@@ -3,43 +3,31 @@
 
 {% block titulo %}
 <div class="masthead-heading text-uppercase"> Cliente</div>
-<ul style="list-style:none">
-  <li><h3>Datos personales</h3></li>  
-<li>{{user.first_name}}</li>
-<li>{{user.last_name}}</li>
-    <li>{{user.email}} </li>
-   
 
-</ul>
-<button type="button" class="btn btn-secondary"><a href="{%url 'editar_perfil'%}" >Editar perfil </button>
+
+
+
     {% endblock titulo %}
 {% block contenido %}
-<a
-href="{% url 'create_cliente' %}"
-class="btn btn-danger btn-sm">
-Agregue una direccion <i class="fa fa-plus fa-lg" title="New Record"> </i>
-</a>
 
 
 <ul style="list-style:none">
             
- 
+   
+    <li><h3>Datos personales</h3></li>  
+  <li>Nombre:{{user.first_name}}</li>
+  <li>Apellido:{{user.last_name}}</li>
+   <li> Email: {{user.email}} </li>
+     
 
-            <li class="titulo" style="color:white">direccion</li>
-            <li style="color:white ">telefono</li>
-        </ul>                  
-    <ul style="list-style:none">
+            
+                    
+   
         {% for c in cliente_list %}
     
-        
-        <li style="color:white ">{{ c.direccion }}</li>
-        <li style="color:white ">{{ c.telefono }}</li>
-        
-        
-      
-     
-    
-        
+        <li style="color:white ">Direccion:{{ c.direccion }}</li>
+        <li style="color:white ">Telefono:{{ c.telefono }}</li>
+           </ul>       
         <li>
             <a
               href="{% url 'update_cliente'  c.id  %}"
@@ -52,8 +40,16 @@ Agregue una direccion <i class="fa fa-plus fa-lg" title="New Record"> </i>
               class="btn btn-danger"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
+           
             </a>
-          </li>        
+            <button type="button" class="btn btn-secondary"><a href="{%url 'editar_perfil'%}" >Editar perfil </button>
+                <a
+                href="{% url 'create_cliente' %}"
+                class="btn btn-danger btn-sm">
+                Agregue una direccion y telefono <i class="fa fa-plus fa-lg" title="New Record"> </i>
+                </a>
+                
+            </li>        
     
     {% endfor %}
         </ul>
