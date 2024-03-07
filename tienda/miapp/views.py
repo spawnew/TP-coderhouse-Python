@@ -25,7 +25,7 @@ def cliente(request):
     return render (request,"miapp/cliente.html")
 def oferta(request):
     return render (request,"miapp/oferta.html")
-def cursos(request):
+def producto (request):
     contexto = {'producto': Producto.objects.all()}
     return render(request, "miapp/producto.html", contexto)
 
