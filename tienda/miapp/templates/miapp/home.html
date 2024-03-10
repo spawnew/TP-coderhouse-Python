@@ -19,7 +19,7 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,17 +29,17 @@
                 {% if user.is_authenticated %}
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{%url 'cliente' %}">Cliente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{%url 'cliente' %}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'oferta' %}">Ofertas</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'singles' %}">Singles</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'producto' %}">Producto Sellado</a></li>
                         <li class="nav-item"><a class="nav-link"  href="{%url 'acerca' %}">Acerca de mi</a></li>
                         <li class="nav-item"><a class="nav-link"  href="{%url 'home' %}">home</a></li>
                         <li class="nav-item"> <p style="color:white"> Hola {{user.username}}!</p>  </li>
-                        <li class="nav-item"><a class="nav-link"  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}" height="40px" weight="40px"/></a>agregar avatar</li>
-                        <li class="nav-item"><a class="nav-link"  href="{% url 'salir' %}">Logout</a>/li>
+                        <li class="nav-item"><a class="nav-link"  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}"  alt="" width=35px height= "35px"  ></a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{% url 'salir' %}">Logout</a></li>
                     
-                        <li class="nav-item"><a class="nav-link"  href="{% url 'editar_perfil' %}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{% url 'ordencompra' %}">compras</a></li>
         
                 {% else %}
                     <a class="btn btn-primary" href="{% url 'login' %}">Login</a>

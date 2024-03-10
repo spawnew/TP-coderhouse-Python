@@ -1,11 +1,10 @@
-
 {%extends 'miapp/home.html'%}
 
 
 
 
 {% block titulo %}
-<h2>Ofertas</h2>
+<h2>compras</h2>
 
 {% endblock titulo %}
 {% block contenido %}
@@ -15,9 +14,9 @@
       
         <td>
             <a
-            href="{% url 'create_oferta' %}"
+            href="{% url 'create_ordencompra' %}"
             class="btn btn-danger btn-sm"
-            >Agregue una oferta <i class="fa fa-plus fa-lg" title="New Record"> </i>
+            >Agregue una compra <i class="fa fa-plus fa-lg" title="New Record"> </i>
             </a>
         </td>
     </tr>
@@ -28,8 +27,8 @@
         <tr>
             <th class="titulo" style="color:white ">Nombre</th>
             <th style="color:white ">precio</th>
-            <th style="color:white ">descuento</th> 
-            <th style="color:white ">Total</th>
+            <th style="color:white ">medio de pago</th> 
+           
             
 
             
@@ -38,12 +37,12 @@
         </tr>
     </thead>
     <tbody>
-    {% for o in oferta_list %}
+    {% for c in ordencompra_list %}
     <tr>
         
-        <td style="color:white ">{{ o.nombre }}</td>
-        <td style="color:white ">{{ o.precio }}</td>
-        <td style="color:white ">{{ o.descuento }}</td>
+        <td style="color:white ">{{ c.nombre }}</td>
+        <td style="color:white ">{{ c.precio }}</td>
+        <td style="color:white ">{{ c.mediopago }}</td>
        
         
    
@@ -52,13 +51,19 @@
         
         <td>
             <a
-              href="{% url 'update_oferta'  o.id  %}"
+            href="{% url 'comprarealizada'   %}"
+            class="btn btn-secondary"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            >comprar<i class="fa fa-edit fa-sm" title="Edit Record"></i>
+          </a>
+            <a
+              href="{% url 'update_oferta'  c.id  %}"
               class="btn btn-primary"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Modificar<i class="fa fa-edit fa-sm" title="Edit Record"></i>
             </a>
             <a
-              href="{% url 'delete_oferta' o.id %}"
+              href="{% url 'delete_oferta' c.id %}"
               class="btn btn-danger"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>

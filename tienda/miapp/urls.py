@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import *
-from .views import restar
+
+
 
 
 
@@ -13,8 +14,7 @@ urlpatterns = [
     path('create_producto/', ProductoCreate.as_view(), name="create_producto" ),    
     path('update_producto/<int:pk>/', ProductoUpdate.as_view(), name="update_producto" ),
     path('delete_producto/<int:pk>/', ProductoDelete.as_view(), name="delete_producto" ),
-    path('buscar/', buscar, name="buscar"),
-    path('buscarProductos/', buscarProductos, name="buscarProductos"),
+
  
       path('acerca',acerca, name='acerca'),
  
@@ -32,9 +32,9 @@ urlpatterns = [
 
 
 
- path('login/', login_request, name="login"),
-  path('registro/', register, name="registro"),
-  
+    path('login/', login_request, name="login"),
+    path('registro/', register, name="registro"),
+   path ('salir/' , salir , name="salir"),
     path('editar_perfil/', editarPerfil, name="editar_perfil"),
     path('agregar_avatar/', agregar_avatar, name="agregar_avatar"),
     
@@ -42,9 +42,15 @@ urlpatterns = [
     path('singles/', SinglesList.as_view() , name="singles" ),
     path('create_singles/', SinglesCreate.as_view(), name="create_singles" ),    
     path('update_singles/<int:pk>/', SinglesUpdate.as_view(), name="update_singles" ),
-    path('delete_singles/<int:pk>/', SinglesDelete.as_view(), name="delete_singles" ),  
-    path ('salir/' , salir , name="salir"),
-    path ('restar/' , restar , name="restar"),
+    path('delete_singles/<int:pk>/', SinglesDelete.as_view(), name="delete_singles" ), 
+     
+     path('ordencompra/', OrdenCompraList.as_view() , name="ordencompra" ),
+    path('create_ordencompra/', OrdenCompraCreate.as_view(), name="create_ordencompra" ),    
+    path('update_ordencompra/<int:pk>/', OrdenCompraUpdate.as_view(), name="update_ordencompra" ),
+    path('delete_ordencompra/<int:pk>/', OrdenCompraDelete.as_view(), name="delete_sordencompra" ),  
+   
+   path ('comprarealizada/' , comprarealizada , name="comprarealizada"),
+    
   
 
 ]

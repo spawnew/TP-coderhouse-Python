@@ -1,6 +1,7 @@
-from django.db import models
+
 from django.contrib.auth.models import User
-from django.db.models.fields.files import ImageField
+from django.db import models
+from django.db.models import ImageField
 
 
 # Create your models here.
@@ -20,7 +21,7 @@ class Singles (models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=40)
     precio = models.IntegerField()
-    foto = ImageField (upload_to="media/avatares" , default="../media/avatares/default_1.jpeg")
+    foto = ImageField(upload_to="media/avatares", default="../media/avatares/default_1.jpeg")
 
     
 
@@ -44,3 +45,10 @@ class Avatar(models.Model):
 
     def __str__(self):
         return f"{self.user} {self.imagen}" 
+    
+    
+    
+class OrdenCompra(models.Model):
+      nombre=models.CharField(max_length=40)
+      precio=models.IntegerField()  
+      mediopago = models.CharField(max_length=60 ,blank=True)

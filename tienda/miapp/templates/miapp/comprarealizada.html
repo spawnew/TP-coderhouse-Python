@@ -1,0 +1,14 @@
+{% extends 'miapp/home.html'%}
+
+
+
+    {% block titulo %}
+     <div class="masthead-heading text-uppercase">La compra se efectuo exitosamente</div>
+
+    
+    {% endblock titulo %}
+
+
+    {% block contenido %}
+     <h3>{{user.nombre}} {{user.last_name}} Se le ha enviado un mail con los datos de su compra {{user.email}}</h3>
+    {% endblock contenido %}

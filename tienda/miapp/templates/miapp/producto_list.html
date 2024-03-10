@@ -9,7 +9,7 @@
 {% block contenido %}
 
 
-<button type="button" class="btn btn-secondary"><a href="{% url 'buscar' %}" >buscar </button>
+
    
 
 <table>
@@ -44,6 +44,12 @@
               class="btn btn-danger"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+            <a
+              href="{% url 'ordencompra'  %}"
+              class="btn btn-secondary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              >comprar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
             </a>
             </div>
           </div>

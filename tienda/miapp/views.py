@@ -25,9 +25,11 @@ def cliente(request):
     return render (request,"miapp/cliente.html")
 def oferta(request):
     return render (request,"miapp/oferta.html")
-def producto (request):
-    contexto = {'producto': Producto.objects.all()}
-    return render(request, "miapp/producto.html", contexto)
+def comprarealizada(request):
+    return render (request,"miapp/comprarealizada.html")
+
+
+
 
 
 
@@ -89,6 +91,7 @@ def register(request):
         miForm = RegistroForm()
 
     return render(request, "miapp/registro.html", {"form": miForm })  
+@login_required
 def editarPerfil(request):
     usuario = request.user
 
@@ -135,20 +138,9 @@ def agregar_avatar(request):
 
 
 
- 
-@login_required
-def buscar(request):
-    return render(request, "miapp/buscar.html")
 
-@login_required
-def buscarProductos(request):
-    if request.GET["buscar"]:
-        patron = request.GET["buscar"]
-        producto = Producto.objects.filter(nombre__icontains = patron)
-        contexto = {"producto": producto }
-        return render(request, "miapp/producto.html", contexto)
-    return HttpResponse ("No se ingresaron patrones de busqueda")
-    
+
+
 class ProductoList(LoginRequiredMixin, ListView):
     model = Producto
 
@@ -207,15 +199,20 @@ def salir( request):
     messages.success(request ,"tu sesision se ha cerrado correctamente")
     return redirect ("home")
 
-def tu_vista(request):
-    # Suponiendo que 'o' es un objeto de TuModelo que contiene los valores de la base de datos
-    o = Oferta.objects.get(id=1)  # Ejemplo de cómo obtener un objeto de la base de datos
 
-    # Realizar la resta de los valores de la base de datos
-    resultado_resta = restar(o.precio, o.descuento)
+class OrdenCompraList(LoginRequiredMixin, ListView):
+    model = OrdenCompra
 
-    return render(request, 'oferta_list.html', {'o': o, 'resultado_resta': resultado_resta})
+class  OrdenCompraCreate(LoginRequiredMixin, CreateView):
+    model = OrdenCompra
+    fields = ['nombre' , 'precio' , 'mediopago']
+    success_url = reverse_lazy('ordencompra')
 
-def restar(numero1, numero2):
-    resta = numero1 - numero2
-    return resta
+class  OrdenCompraUpdate(LoginRequiredMixin, UpdateView):
+    model =OrdenCompra
+    fields = ['nombre', 'precio','mediopago']
+    success_url = reverse_lazy('ordencompra')
+class  OrdenCompraDelete(LoginRequiredMixin, DeleteView):
+        model =OrdenCompra
+        success_url = reverse_lazy('ordencompra')
+
