@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from .views import restar
 
 
 
@@ -32,7 +33,7 @@ urlpatterns = [
 
 
  path('login/', login_request, name="login"),
-  path('reg istro/', register, name="registro"),
+  path('registro/', register, name="registro"),
   
     path('editar_perfil/', editarPerfil, name="editar_perfil"),
     path('agregar_avatar/', agregar_avatar, name="agregar_avatar"),
@@ -43,5 +44,7 @@ urlpatterns = [
     path('update_singles/<int:pk>/', SinglesUpdate.as_view(), name="update_singles" ),
     path('delete_singles/<int:pk>/', SinglesDelete.as_view(), name="delete_singles" ),  
     path ('salir/' , salir , name="salir"),
+    path ('restar/' , restar , name="restar"),
+  
 
 ]

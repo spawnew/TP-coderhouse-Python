@@ -154,12 +154,12 @@ class ProductoList(LoginRequiredMixin, ListView):
 
 class  ProductoCreate(LoginRequiredMixin, CreateView):
     model = Producto
-    fields = ['nombre', 'precio','fproducto']
+    fields = ['nombre', 'precio','foto']
     success_url = reverse_lazy('producto')
 
 class  ProductoUpdate(LoginRequiredMixin, UpdateView):
     model = Producto
-    fields = ['nombre', 'precio','fproducto']
+    fields = ['nombre', 'precio','foto']
     success_url = reverse_lazy('producto')
 
 class  ProductoDelete(LoginRequiredMixin, DeleteView):
@@ -206,3 +206,16 @@ def salir( request):
     logout(request)
     messages.success(request ,"tu sesision se ha cerrado correctamente")
     return redirect ("home")
+
+def tu_vista(request):
+    # Suponiendo que 'o' es un objeto de TuModelo que contiene los valores de la base de datos
+    o = Oferta.objects.get(id=1)  # Ejemplo de cómo obtener un objeto de la base de datos
+
+    # Realizar la resta de los valores de la base de datos
+    resultado_resta = restar(o.precio, o.descuento)
+
+    return render(request, 'oferta_list.html', {'o': o, 'resultado_resta': resultado_resta})
+
+def restar(numero1, numero2):
+    resta = numero1 - numero2
+    return resta

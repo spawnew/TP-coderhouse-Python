@@ -27,9 +27,9 @@
 <div class="container">
     <div class="row">
     {% for p in producto_list %}
-  
+    
         <div class="card col-3 " style="width: 18rem;  margin:10px; p-3 mb-2 bg-light-subtle text-light-emphasis">
-            <img src="{{ p.fproducto.url }} " class="card-img-top" alt="...">
+            <img src="{{ p.foto.url }} "   class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title text-black" >{{ p.nombre }}</h5>
               <p class="card-text text-black">precio:${{ p.precio }}</p>
