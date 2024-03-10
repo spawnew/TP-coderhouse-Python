@@ -1,0 +1,70 @@
+
+{%extends 'miapp/home.html'%}
+
+
+
+
+{% block titulo %}
+<h2>Ofertas</h2>
+
+{% endblock titulo %}
+{% block contenido %}
+
+<table>
+    <tr>
+      
+        <td>
+            <a
+            href="{% url 'create_oferta' %}"
+            class="btn btn-danger btn-sm"
+            >Agregue una oferta <i class="fa fa-plus fa-lg" title="New Record"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped ">
+    <thead>
+        <tr>
+            <th class="titulo" style="color:white ">Nombre</th>
+            <th style="color:white ">precio</th>
+            <th style="color:white ">descuento</th>
+            
+
+            
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+    {% for o in oferta_list %}
+    <tr>
+        
+        <td style="color:white ">{{ o.nombre }}</td>
+        <td style="color:white ">{{ o.precio }}</td>
+        <td style="color:white ">{{ o.descuento }}</td>
+        
+      
+     
+    
+        
+        <td>
+            <a
+              href="{% url 'update_oferta'  o.id  %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              >Modificar<i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'delete_oferta' o.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+          </td>        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

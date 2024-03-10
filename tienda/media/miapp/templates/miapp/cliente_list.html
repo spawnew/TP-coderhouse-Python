@@ -1,0 +1,57 @@
+{%extends 'miapp/home.html'%}
+
+
+{% block titulo %}
+<div class="masthead-heading text-uppercase"> Cliente</div>
+
+
+
+
+    {% endblock titulo %}
+{% block contenido %}
+
+
+<ul style="list-style:none " >
+            
+   
+    <li><h3>Datos personales</h3></li>  
+  <li><h5>Nombre: {{user.first_name}}<h5></li>
+  <li><h5>Apellido: {{user.last_name}}<h5></li>
+   <li><h5> Email: {{user.email}} <h5></li>
+     
+
+            
+                    
+   
+        {% for c in cliente_list %}
+    
+        <li  style="color:white "><h5>Direccion: {{ c.direccion }}</h5></li>
+        <li style="color:white "><h5>Telefono: {{ c.telefono }}</h5></li>
+                 
+        <li>
+            <a
+              href="{% url 'update_cliente'  c.id  %}"
+              class="btn btn-primary"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              >Modificar<i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+              href="{% url 'delete_cliente' c.id %}"
+              class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
+           
+            </a>
+            <button type="button" class="btn btn-secondary"><a href="{%url 'editar_perfil'%}" >Editar perfil </button>
+                <a
+                href="{% url 'create_cliente' %}"
+                class="btn btn-danger btn-sm">
+                Agregue una direccion y telefono <i class="fa fa-plus fa-lg" title="New Record"> </i>
+                </a>
+                
+            </li>        
+    
+    {% endfor %}
+        </ul>
+
+{% endblock contenido %}
