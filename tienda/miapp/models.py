@@ -1,7 +1,7 @@
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import ImageField
+from django.db.models.fields.files import ImageField
 
 
 # Create your models here.

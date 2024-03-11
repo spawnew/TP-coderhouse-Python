@@ -29,12 +29,13 @@
                 {% if user.is_authenticated %}
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link"  href="{%url 'home' %}">home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'cliente' %}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'oferta' %}">Ofertas</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'singles' %}">Singles</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'producto' %}">Producto Sellado</a></li>
                         <li class="nav-item"><a class="nav-link"  href="{%url 'acerca' %}">Acerca de mi</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="{%url 'home' %}">home</a></li>
+                        
                         <li class="nav-item"> <p style="color:white"> Hola {{user.username}}!</p>  </li>
                         <li class="nav-item"><a class="nav-link"  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}"  alt="" width=35px height= "35px"  ></a></li>
                         <li class="nav-item"><a class="nav-link"  href="{% url 'salir' %}">Logout</a></li>
@@ -57,16 +58,29 @@
                 
 
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+
+
+
+
     {% endblock titulo %}
                 
     {% block contenido %}
-    
-{% endblock contenido %}
+    <p>Visite nuestra pagina de venta y compra de cartas dedicada a el juego de cartas Yugioh</p>
+            <p>visite tamb nuestro drive con nuestras carpetas </p>
+<div>
+    <h3> Drive</h3>
+            <a href="https://drive.google.com/drive/u/0/folders/1N207VxsRvC_HpmeGY6kRmkknryAWuja_?fbclid=IwAR1GCjvnSj-uAzbUQeWIwXZApBbufo6oeAJiTJDVhSEPCEdW3vky9b9d16k">
+         <img src="../media/avatares/images_4.jpeg" alt="">
+         <h3> instagram</h3>
+         <a href="https://www.instagram.com/imperio_yugioh/">
+      <img src=" ../media/avatares/captura2.png" alt="">
+            </div>        
+                    {% endblock contenido %}
        
 
             
    
-        <!-- Footer-->
+       
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
