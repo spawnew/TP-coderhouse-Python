@@ -11,7 +11,7 @@
 {% block contenido %}
 
 
-<ul style="list-style:none " >
+<ul class="container" >
             
    
     <li><h3>Datos personales</h3></li>  
@@ -28,7 +28,7 @@
         <li  style="color:white "><h5>Direccion: {{ c.direccion }}</h5></li>
         <li style="color:white "><h5>Telefono: {{ c.telefono }}</h5></li>
                  
-        <li>
+        <li class="lista1">
             <a
               href="{% url 'update_cliente'  c.id  %}"
               class="btn btn-primary"
@@ -42,7 +42,10 @@
               >Borrar<i class="fa fa-trash fa-sm" title="Delete Record"></i>
            
             </a>
-            <button type="button" class="btn btn-secondary"><a href="{%url 'editar_perfil'%}" >Editar perfil </button>
+           
+              <a href="{%url 'editar_perfil'%}"  class="btn btn-danger"
+              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+              >Editar Perfil<i class="fa fa-trash fa-sm" title="Delete Record"></i>
                 <a
                 href="{% url 'create_cliente' %}"
                 class="btn btn-danger btn-sm">

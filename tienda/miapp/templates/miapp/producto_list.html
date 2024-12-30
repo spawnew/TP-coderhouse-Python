@@ -24,12 +24,12 @@
     </tr>
 </table>
 
-<div class="container">
-    <div class="row">
+
+   <ul class="navbar-nav">
     {% for p in producto_list %}
-    
-        <div class="card col-3 " style="width: 18rem;  margin:10px; p-3 mb-2 bg-light-subtle text-light-emphasis">
-            <img src="{{ p.foto.url }} "   class="card-img-top" alt="">
+      
+        <li><div class="card col-3 " style="width: 18rem;  margin:10px; p-3 mb-2 bg-light-subtle text-light-emphasis">
+            <img src="{{ p.foto.url }} "   class="fotosDeProductos" alt="">
             <div class="card-body">
               <h5 class="card-title text-black" >{{ p.nombre }}</h5>
               <p class="card-text text-black">precio:${{ p.precio }}</p>
@@ -53,9 +53,11 @@
             </a>
             </div>
           </div>
+        </li>
        
     {% endfor %}
-</div>
-</div>
+      </ul>
+
+
 
 {% endblock contenido %}
